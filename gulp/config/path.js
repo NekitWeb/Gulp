@@ -3,6 +3,7 @@ const buildFolder = "./dist";
 
 export const path = {
   build: {
+    build: buildFolder,
     html: `${buildFolder}/`,
     style: `${buildFolder}/`,
     images: `${buildFolder}/assets/images/`,

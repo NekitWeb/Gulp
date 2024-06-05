@@ -18,5 +18,5 @@ export const html = () => {
     )
     .pipe(gulpIf(isBuild, htmlmin({ collapseWhitespace: true })))
     .pipe(dest(path.build.html))
-    .pipe(browserSync.stream());
+    .pipe(gulpIf(!isBuild, browserSync.stream()));
 };
