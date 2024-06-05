@@ -5,6 +5,7 @@ import gulpHtmlTagInclude from "gulp-html-tag-include";
 import htmlmin from "gulp-htmlmin";
 import gulpIf from "gulp-if";
 import { isBuild } from "../../gulpfile.js";
+import browserSync from "browser-sync";
 
 export const html = () => {
   return src(path.src.html)
@@ -16,5 +17,6 @@ export const html = () => {
       })
     )
     .pipe(gulpIf(isBuild, htmlmin({ collapseWhitespace: true })))
-    .pipe(dest(path.build.html));
+    .pipe(dest(path.build.html))
+    .pipe(browserSync.stream());
 };
